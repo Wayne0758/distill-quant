@@ -166,9 +166,15 @@ distill_quant/
 ## Distillation Loss
 
 **Logit KD:**
-$$\mathcal{L} = \alpha \cdot \mathcal{L}_{CE}(y, \hat{y}) + (1 - \alpha) \cdot T^2 \cdot \mathcal{L}_{KL}\left(\frac{z_S}{T} \,\|\, \frac{z_T}{T}\right)$$
+
+$$
+\mathcal{L} = \alpha \cdot \mathcal{L}_{CE}(y,\hat{y}) + (1-\alpha) \cdot T^2 \cdot D_{KL}\!\left(\frac{z_S}{T} \,\Big\|\, \frac{z_T}{T}\right)
+$$
 
 **Feature KD** (additional terms):
-$$\mathcal{L}_{feat} = \beta \cdot \mathcal{L}_{attn} + \gamma \cdot \mathcal{L}_{hidden}$$
+
+$$
+\mathcal{L}_{feat} = \beta \cdot \mathcal{L}_{attn} + \gamma \cdot \mathcal{L}_{hidden}
+$$
 
 where attention maps are averaged over heads to handle head-count mismatch, and hidden states are aligned via a learnable linear projection.
