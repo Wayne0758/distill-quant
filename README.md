@@ -168,7 +168,7 @@ distill_quant/
 **Logit KD:**
 
 $$
-\mathcal{L} = \alpha \cdot \mathcal{L}_{CE}(y, \hat{y}) + (1 - \alpha) \cdot T^2 \cdot D_{KL}\left( \frac{z_S}{T} \|\| \frac{z_T}{T} \right)
+\mathcal{L} = \alpha \cdot \mathcal{L}_{CE}(y, \hat{y}) + (1 - \alpha) \cdot T^2 \cdot D_{KL}\left( \frac{z_S}{T} || \frac{z_T}{T} \right)
 $$
 
 **Feature KD** (additional terms):
